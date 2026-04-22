@@ -1,10 +1,10 @@
-# Portafolio Web – Nilton Guerra 🧑‍💻✨
+# Agencia de Marketing – Nilton Guerra 🧑‍💻✨
 
-Sitio web personal para mostrar experiencia, proyectos y habilidades en desarrollo de software.
+Sitio web para una agencia de marketing.
 
 ## 📋 Descripción
 
-Portafolio moderno desarrollado con React y Vite que presenta la trayectoria de Nilton Guerra como Ingeniero Informático. Incluye secciones de experiencia, educación, proyectos, skills, idiomas y contacto, con animaciones profesionales y una interfaz clara enfocada en reclutadores y clientes.
+landing page moderno para una agencia de marketing desarrollado con React y Vite que presenta los servicios que ofrece la agencia NEXUS . Incluye secciones de servicios, benefios,about, procesos, testimonios, trabajo y contacto, con animaciones profesionales y una interfaz clara enfocada en clientes.
 
 ## ✨ Características
 
@@ -31,8 +31,8 @@ Portafolio moderno desarrollado con React y Vite que presenta la trayectoria de 
 - Vite
 - JavaScript (ES6+)
 - CSS3 (variables, flexbox, grid, keyframes)
--  three.js (estilos 3d)
--  particle.js (interaccion con particulas dentro de la pagina)
+- three.js (estilos 3d)
+- particle.js (interaccion con particulas dentro de la pagina)
 - GSAP (animaciones y timelines)
 
 ## 🚀 Cómo Usar
