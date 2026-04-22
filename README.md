@@ -11,8 +11,6 @@ Portafolio moderno desarrollado con React y Vite que presenta la trayectoria de 
 - **Diseño responsivo**: Interfaz adaptable a móviles, tablets y desktop
 - **Animaciones con GSAP**: Entradas suaves, efectos de scroll y microinteracciones
 - **Efectos visuales**: Fondos con parallax, avatar 3D con glitch y detalles hover en tarjetas
-- **Descarga de CV**: Botón directo para obtener el CV en PDF desde el hero
-- **Contacto rápido**: Botón que abre conversación por WhatsApp con mensaje predefinido
 
 ## 🗂️ Estructura del Proyecto
 
@@ -33,16 +31,15 @@ Portafolio moderno desarrollado con React y Vite que presenta la trayectoria de 
 - Vite
 - JavaScript (ES6+)
 - CSS3 (variables, flexbox, grid, keyframes)
--three.js (estilos 3d)
--particle.js (interaccion con particulas dentro de la pagina)
+-  three.js (estilos 3d)
+-  particle.js (interaccion con particulas dentro de la pagina)
 - GSAP (animaciones y timelines)
 
 ## 🚀 Cómo Usar
 
 1. Clona el repositorio:
    ```bash
-   git clone https://github.com/NiltonWar120/Portafolio-2026.git
-   cd portfolio
+   git clone https://github.com/NiltonWar120/Marketing-page.git
    ```
 
 2. Instala las dependencias:
@@ -76,12 +73,11 @@ Para personalizar el portafolio con tu información:
 
 1. Actualiza los datos personales en los componentes de `src/components/`
 2. Reemplaza las imágenes en `public/images/`
-3. Actualiza tu CV en `public/CV_Nilton-Guerra_2026.pdf`
 4. Modifica los colores y estilos en `App.css`
 
 ## 📄 Licencia
 
-Este proyecto está orientado a uso personal como portafolio profesional. Las adaptaciones son bienvenidas citando la autoría original.
+Este proyecto está orientado a uso personal como Agencia de Marketing. Las adaptaciones son bienvenidas citando la autoría original.
 
 ---
 
