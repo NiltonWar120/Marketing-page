@@ -60,7 +60,7 @@ export default function HeroCanvas() {
         // --- ESTA ES LA SECCIÓN QUE DEBES AGREGAR O MODIFICAR ---
   modes: {
     repulse: {
-      distance: 100,      // Reduce este número para un radio más pequeño (ej. 50 o 80)
+      distance: 150,      // Reduce este número para un radio más pequeño (ej. 50 o 80)
       duration: 0.4,      // Qué tan rápido regresan las partículas a su sitio
       speed: 1            // La fuerza con la que son empujadas
     }

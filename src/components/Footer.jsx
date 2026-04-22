@@ -7,6 +7,7 @@ import {
   FaFacebookF,
   FaXTwitter,
 } from 'react-icons/fa6'
+import { SiGmail } from 'react-icons/si'
 import './Footer.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -18,9 +19,9 @@ const footerLinks = {
 }
 
 const socialLinks = [
-  { name: 'LinkedIn', icon: <FaLinkedinIn size={18} />, url: '#' },
-  { name: 'Instagram', icon: <FaInstagram size={18} />, url: '#' },
-  { name: 'Facebook', icon: <FaFacebookF size={18} />, url: '#' },
+  { name: 'Gmail', icon: <SiGmail size={18} />, url: 'mailto:guerraramireznilton@gmail.com?subject=Quiero%20trabajar%20con%20ustedes' },
+  { name: 'Instagram', icon: <FaInstagram size={18} />, url: 'https://www.instagram.com/og__nilthon/' },
+  { name: 'Facebook', icon: <FaFacebookF size={18} />, url: 'https://www.facebook.com/nilthon.guerra.7' },
   { name: 'X', icon: <FaXTwitter size={18} />, url: '#' },
 ]
 
