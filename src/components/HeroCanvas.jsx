@@ -6,20 +6,20 @@ export default function HeroCanvas() {
     window.particlesJS('particles-js', {
       particles: {
         number: {
-          value: 150, // Number of particles
+          value: 150, // numero de partículas
           density: {
             enable: true,
-            value_area: 900, // Density of the particles
+            value_area: 800, // den sidad de partículas en el área
           },
         },
         color: {
-          value: '#c8f542', // Color of the particles
+          value: '#c8f542', // color de las partículas
         },
         shape: {
-          type: 'circle', // Shape of particles
+          type: 'circle', // forma de las partículas
         },
         opacity: {
-          value: 0.5, // Opacity of the particles
+          value: 0.5, // opacidad de las partículas
           random: true,
           anim: {
             enable: true,
@@ -28,7 +28,7 @@ export default function HeroCanvas() {
           },
         },
         size: {
-          value: 3, // Size of the particles
+          value: 3, // tamaño de las partículas
           random: true,
           anim: {
             enable: true,
@@ -38,7 +38,7 @@ export default function HeroCanvas() {
         },
         move: {
           enable: true,
-          speed: 4, // Speed of particles
+          speed: 5, // velocidad de movimiento de partículas
           direction: 'none',
           random: true,
           straight: false,
@@ -50,13 +50,21 @@ export default function HeroCanvas() {
         events: {
           onhover: {
             enable: true,
-            mode: 'repulse', // Repulsion effect when mouse hovers over particles
+            mode: ['repulse'], // Repulsion effect when mouse hovers over particles
           },
           onclick: {
             enable: true,
             mode: 'push', // Push more particles when clicked
           },
         },
+        // --- ESTA ES LA SECCIÓN QUE DEBES AGREGAR O MODIFICAR ---
+  modes: {
+    repulse: {
+      distance: 100,      // Reduce este número para un radio más pequeño (ej. 50 o 80)
+      duration: 0.4,      // Qué tan rápido regresan las partículas a su sitio
+      speed: 1            // La fuerza con la que son empujadas
+    }
+  }
       },
       retina_detect: true, // Detects retina displays
     });
