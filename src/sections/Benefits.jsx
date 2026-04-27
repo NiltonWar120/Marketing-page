@@ -117,7 +117,7 @@ export default function Benefits() {
           <div className="benefits-head-row">
             <h2 className="display-md">
               La diferencia<br />
-              <span className="accent-text">VENTAS FLOW</span>
+              <span className="accent-text">VENTASFLOW</span>
             </h2>
             <p className="body-lg benefits-sub">
               Cientos de agencias prometen resultados.<br />

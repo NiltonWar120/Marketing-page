@@ -79,7 +79,7 @@ export default function About() {
           <div className="about-img-wrap" ref={imgRef}>
             <img
               src={imageUrl}
-              alt="Equipo creativo de VENTAS FLOW"
+              alt="Equipo creativo de VENTASFLOW"
               className="about-img"
               loading="lazy"
             />

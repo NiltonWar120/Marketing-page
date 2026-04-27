@@ -63,7 +63,7 @@ export default function Footer() {
               onClick={scrollTop}
             >
               <span className="logo-mark-f">N</span>
-              <span className="logo-text-f">VENTAS FLOW</span>
+              <span className="logo-text-f">VENTASFLOW</span>
             </div>
 
             <p className="footer-tagline">
@@ -109,7 +109,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="label">
-  © {new Date().getFullYear()} VENTAS FLOW Digital Agency · Lima, Perú 🇵🇪
+  © {new Date().getFullYear()} VENTASFLOW Digital Agency · Lima, Perú 🇵🇪
 </span>
           <span className="label footer-crafted">Crafted with GN studio</span>
 
