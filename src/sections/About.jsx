@@ -79,7 +79,7 @@ export default function About() {
           <div className="about-img-wrap" ref={imgRef}>
             <img
               src={imageUrl}
-              alt="Equipo creativo de NEXUS"
+              alt="Equipo creativo de VENTAS FLOW"
               className="about-img"
               loading="lazy"
             />
@@ -130,7 +130,7 @@ export default function About() {
             style={{ marginBottom: '2rem', opacity: 0 }}
           >
             <span className="dot" />
-            <span>Sobre NEXUS</span>
+            <span>Sobre VENTAS FLOW</span>
           </div>
 
           <h2

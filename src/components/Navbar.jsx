@@ -43,7 +43,7 @@ export default function Navbar() {
           onClick={() => window.scrollTo({ top: 0, behavior: "smooth" })}
         >
           <span className="logo-mark">N</span>
-          <span className="logo-text">NEXUS</span>
+          <span className="logo-text">VENTASFLOW</span>
         </div>
 
         <ul className="nav-links">

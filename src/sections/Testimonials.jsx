@@ -13,7 +13,7 @@ const testimonials = [
     role: 'CEO',
     company: 'Vaultra Finance',
     quote:
-      'NEXUS transformó completamente nuestra presencia digital. Pasamos de ser invisibles online a dominar las búsquedas de nuestro sector. ROI de 3x en los primeros 4 meses.',
+      'VENTAS FLOW transformó completamente nuestra presencia digital. Pasamos de ser invisibles online a dominar las búsquedas de nuestro sector. ROI de 3x en los primeros 4 meses.',
     avatar: 'CM',
     rating: 5,
     metric: '3× ROI',
@@ -143,7 +143,7 @@ export default function Testimonials() {
 
     const timer = setTimeout(() => {
       next()
-    }, AUTOPLAY_DELAY)
+    }, 5000)
 
     return () => clearTimeout(timer)
   }, [active, paused, next])
@@ -331,7 +331,7 @@ export default function Testimonials() {
         </div>
 
         <div className="logos-section">
-          <p className="label logos-label">Empresas que han confiado en NEXUS</p>
+          <p className="label logos-label">Empresas que han confiado en VENTAS FLOW</p>
 
           <div className="logos-track">
             {logos.map((l) => (

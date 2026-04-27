@@ -465,20 +465,20 @@ export default function Contact() {
                   className={`form-group ${focused === "project" ? "focused" : ""} ${form.project ? "has-value" : ""}`}
                 >
                   <label htmlFor="project">Tipo de proyecto</label>
-                 <CustomSelect
-  id="project"
-  value={form.project}
-  placeholder="¿En qué podemos ayudarte?"
-  options={projectOptions}
-  onChange={(value) =>
-    setForm((prev) => ({
-      ...prev,
-      project: value,
-    }))
-  }
-  onOpen={() => setFocused("project")}
-  onClose={() => setFocused(null)}
-/>
+                  <CustomSelect
+                    id="project"
+                    value={form.project}
+                    placeholder="¿En qué podemos ayudarte?"
+                    options={projectOptions}
+                    onChange={(value) =>
+                      setForm((prev) => ({
+                        ...prev,
+                        project: value,
+                      }))
+                    }
+                    onOpen={() => setFocused("project")}
+                    onClose={() => setFocused(null)}
+                  />
                 </div>
 
                 <div

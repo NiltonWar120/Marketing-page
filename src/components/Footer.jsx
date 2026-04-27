@@ -51,7 +51,7 @@ export default function Footer() {
   return (
     <footer ref={footerRef} className="footer" id="footer">
       <div className="footer-bg-text" ref={bigTextRef} aria-hidden>
-        NEXUS
+        VENTAS FLOW
       </div>
 
       <div className="container footer-inner">
@@ -63,7 +63,7 @@ export default function Footer() {
               onClick={scrollTop}
             >
               <span className="logo-mark-f">N</span>
-              <span className="logo-text-f">NEXUS</span>
+              <span className="logo-text-f">VENTAS FLOW</span>
             </div>
 
             <p className="footer-tagline">
@@ -109,7 +109,7 @@ export default function Footer() {
 
         <div className="footer-bottom">
           <span className="label">
-  © {new Date().getFullYear()} NEXUS Digital Agency · Lima, Perú 🇵🇪
+  © {new Date().getFullYear()} VENTAS FLOW Digital Agency · Lima, Perú 🇵🇪
 </span>
           <span className="label footer-crafted">Crafted with GN studio</span>
 
