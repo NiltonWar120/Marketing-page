@@ -108,7 +108,9 @@ export default function Footer() {
         <div className="footer-divider" />
 
         <div className="footer-bottom">
-          <span className="label">© 2025 NEXUS Digital Agency · Lima, Perú 🇵🇪</span>
+          <span className="label">
+  © {new Date().getFullYear()} NEXUS Digital Agency · Lima, Perú 🇵🇪
+</span>
           <span className="label footer-crafted">Crafted with GN studio</span>
 
           <button className="back-to-top" onClick={scrollTop} data-hover>

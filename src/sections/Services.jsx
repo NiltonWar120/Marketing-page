@@ -52,15 +52,15 @@ const services = [
     size: 'size-6', // 1/2 del total (6 de 12)
   },
 
-  {
-    id: '05',
-    title: 'Programación a Medida',
-    label: 'CUSTOM SYSTEMS',
-    desc: 'Soluciones custom para operaciones, automatización y productos escalables.',
-    icon: '◉',
-    img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
-    size: 'size-12', // 1/2 del total (6 de 12)
-  },
+{
+  id: '06',
+  title: 'Programación a Medida',
+  label: 'CUSTOM SYSTEMS',
+  desc: 'Soluciones custom para operaciones, automatización y productos escalables.',
+  icon: '◉',
+  img: 'https://images.unsplash.com/photo-1555066931-4365d14bab8c?q=80&w=1000&auto=format&fit=crop',
+  size: 'size-12',
+}
 ]
 
 export default function Services() {
