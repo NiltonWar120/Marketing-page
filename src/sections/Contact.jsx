@@ -2,15 +2,132 @@ import { useEffect, useRef, useState } from "react";
 import gsap from "gsap";
 import { ScrollTrigger } from "gsap/ScrollTrigger";
 import "./Contact.css";
-import {
-  FaInstagram,
-  FaFacebookF,
-  FaXTwitter,
-} from "react-icons/fa6";
+import { FaInstagram, FaFacebookF, FaXTwitter } from "react-icons/fa6";
 import { SiGmail } from "react-icons/si";
 
 gsap.registerPlugin(ScrollTrigger);
 
+const budgetOptions = [
+  { value: "$2,000 – $5,000", label: "$2,000 – $5,000" },
+  { value: "$5,000 – $15,000", label: "$5,000 – $15,000" },
+  { value: "$15,000 – $50,000", label: "$15,000 – $50,000" },
+  { value: "+$50,000", label: "+$50,000" },
+];
+
+const projectOptions = [
+  {
+    value: "Diseño de marca e identidad visual",
+    label: "Diseño de marca e identidad visual",
+  },
+  {
+    value: "Desarrollo web (sitio o landing)",
+    label: "Desarrollo web (sitio o landing)",
+  },
+  {
+    value: "Aplicación o software a medida",
+    label: "Aplicación o software a medida",
+  },
+  {
+    value: "SEO y posicionamiento orgánico",
+    label: "SEO y posicionamiento orgánico",
+  },
+  {
+    value: "Asesoría estratégica digital",
+    label: "Asesoría estratégica digital",
+  },
+  {
+    value: "Proyecto completo (todo lo anterior 🚀)",
+    label: "Proyecto completo (todo lo anterior 🚀)",
+  },
+];
+
+function CustomSelect({
+  id,
+  value,
+  placeholder,
+  options,
+  onChange,
+  onOpen,
+  onClose,
+}) {
+  const [open, setOpen] = useState(false);
+  const selectRef = useRef(null);
+
+  const selected = options.find((option) => option.value === value);
+
+  useEffect(() => {
+    const handleClickOutside = (e) => {
+      if (!selectRef.current?.contains(e.target)) {
+        setOpen(false);
+        onClose?.();
+      }
+    };
+
+    document.addEventListener("pointerdown", handleClickOutside);
+
+    return () => {
+      document.removeEventListener("pointerdown", handleClickOutside);
+    };
+  }, [onClose]);
+
+  const toggle = () => {
+    setOpen((prev) => {
+      const next = !prev;
+      if (next) onOpen?.();
+      else onClose?.();
+      return next;
+    });
+  };
+
+  const selectOption = (option) => {
+    onChange(option.value);
+    setOpen(false);
+    onClose?.();
+  };
+
+  return (
+    <div ref={selectRef} className={`custom-select ${open ? "open" : ""}`}>
+      <button
+        id={id}
+        type="button"
+        className={`custom-select-trigger ${!selected ? "is-placeholder" : ""}`}
+        onClick={toggle}
+        aria-haspopup="listbox"
+        aria-expanded={open}
+      >
+        <span>{selected ? selected.label : placeholder}</span>
+        <svg width="16" height="16" viewBox="0 0 24 24" fill="none">
+          <path
+            d="M6 9L12 15L18 9"
+            stroke="currentColor"
+            strokeWidth="2"
+            strokeLinecap="round"
+            strokeLinejoin="round"
+          />
+        </svg>
+      </button>
+
+      {open && (
+        <div className="custom-select-menu" role="listbox">
+          {options.map((option) => (
+            <button
+              key={option.value}
+              type="button"
+              className={`custom-select-option ${
+                value === option.value ? "selected" : ""
+              }`}
+              onClick={() => selectOption(option)}
+              role="option"
+              aria-selected={value === option.value}
+            >
+              {option.label}
+            </button>
+          ))}
+        </div>
+      )}
+    </div>
+  );
+}
 export default function Contact() {
   const sectionRef = useRef(null);
 
@@ -42,7 +159,7 @@ export default function Contact() {
           stagger: 0.12,
           ease: "power3.out",
           scrollTrigger: { trigger: ".contact-head", start: "top 80%" },
-        }
+        },
       );
 
       gsap.fromTo(
@@ -55,7 +172,7 @@ export default function Contact() {
           stagger: 0.15,
           ease: "power3.out",
           scrollTrigger: { trigger: ".contact-grid", start: "top 80%" },
-        }
+        },
       );
     }, sectionRef);
 
@@ -112,7 +229,7 @@ export default function Contact() {
             _template: "table",
             _captcha: "false",
           }),
-        }
+        },
       );
 
       const data = await response.json();
@@ -125,7 +242,7 @@ export default function Contact() {
       resetForm();
     } catch (err) {
       setError(
-        err.message || "Ocurrió un error al enviar. Inténtalo nuevamente."
+        err.message || "Ocurrió un error al enviar. Inténtalo nuevamente.",
       );
     } finally {
       setLoading(false);
@@ -245,12 +362,7 @@ export default function Contact() {
                 <FaFacebookF />
               </a>
 
-              <a
-                href="#"
-                className="social-link"
-                data-hover
-                aria-label="X"
-              >
+              <a href="#" className="social-link" data-hover aria-label="X">
                 <FaXTwitter />
               </a>
             </div>
@@ -332,22 +444,20 @@ export default function Contact() {
                     className={`form-group ${focused === "budget" ? "focused" : ""} ${form.budget ? "has-value" : ""}`}
                   >
                     <label htmlFor="budget">Presupuesto</label>
-                    <select
+                    <CustomSelect
                       id="budget"
-                      name="budget"
                       value={form.budget}
-                      onChange={update("budget")}
-                      onFocus={() => setFocused("budget")}
-                      onBlur={() => setFocused(null)}
-                    >
-                      <option value="">Selecciona un rango</option>
-                      <option value="$2,000 – $5,000">$2,000 – $5,000</option>
-                      <option value="$5,000 – $15,000">$5,000 – $15,000</option>
-                      <option value="$15,000 – $50,000">
-                        $15,000 – $50,000
-                      </option>
-                      <option value="+$50,000">+$50,000</option>
-                    </select>
+                      placeholder="Selecciona un rango"
+                      options={budgetOptions}
+                      onChange={(value) =>
+                        setForm((prev) => ({
+                          ...prev,
+                          budget: value,
+                        }))
+                      }
+                      onOpen={() => setFocused("budget")}
+                      onClose={() => setFocused(null)}
+                    />
                   </div>
                 </div>
 
@@ -355,34 +465,20 @@ export default function Contact() {
                   className={`form-group ${focused === "project" ? "focused" : ""} ${form.project ? "has-value" : ""}`}
                 >
                   <label htmlFor="project">Tipo de proyecto</label>
-                  <select
-                    id="project"
-                    name="project"
-                    value={form.project}
-                    onChange={update("project")}
-                    onFocus={() => setFocused("project")}
-                    onBlur={() => setFocused(null)}
-                  >
-                    <option value="">¿En qué podemos ayudarte?</option>
-                    <option value="Diseño de marca e identidad visual">
-                      Diseño de marca e identidad visual
-                    </option>
-                    <option value="Desarrollo web (sitio o landing)">
-                      Desarrollo web (sitio o landing)
-                    </option>
-                    <option value="Aplicación o software a medida">
-                      Aplicación o software a medida
-                    </option>
-                    <option value="SEO y posicionamiento orgánico">
-                      SEO y posicionamiento orgánico
-                    </option>
-                    <option value="Asesoría estratégica digital">
-                      Asesoría estratégica digital
-                    </option>
-                    <option value="Proyecto completo (todo lo anterior 🚀)">
-                      Proyecto completo (todo lo anterior 🚀)
-                    </option>
-                  </select>
+                 <CustomSelect
+  id="project"
+  value={form.project}
+  placeholder="¿En qué podemos ayudarte?"
+  options={projectOptions}
+  onChange={(value) =>
+    setForm((prev) => ({
+      ...prev,
+      project: value,
+    }))
+  }
+  onOpen={() => setFocused("project")}
+  onClose={() => setFocused(null)}
+/>
                 </div>
 
                 <div
@@ -426,12 +522,7 @@ export default function Contact() {
                 >
                   <span>{loading ? "Enviando..." : "Enviar mensaje"}</span>
                   {!loading && (
-                    <svg
-                      width="14"
-                      height="14"
-                      viewBox="0 0 14 14"
-                      fill="none"
-                    >
+                    <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
                       <path
                         d="M1 13L13 1M13 1H4M13 1V10"
                         stroke="currentColor"

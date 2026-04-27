@@ -1,7 +1,13 @@
-.process { background: var(--black); }
+.process { background: var(--black);
+position: relative;
+overflow: hidden; }
 .process-head { margin-bottom: 4rem; }
 .process-head .pill { margin-bottom: 1.5rem; }
 
+.process .container{
+position: relative;
+z-index: 2;
+}
 .process-body {
   display: grid;
   grid-template-columns: 40px 1fr 380px;
@@ -13,7 +19,8 @@
   width: 1px;
   height: 600px;
   background: linear-gradient(to bottom, var(--accent), rgba(200,245,66,0.1), transparent);
-  transform-origin: top;
+  transform-origin: top center;
+  box-shadow: 0 0 18px rgba(188, 255, 0, 0.2);
 }
 .process-steps { display: flex; flex-direction: column; }
 .step-item {
@@ -39,6 +46,7 @@
   border-radius: 50%;
   background: var(--accent);
   transition: transform 0.3s;
+  box-shadow: 0 0 14px rgba(188, 255, 0, 0.35);
 }
 .step-item:hover .step-dot-inner { transform: scale(1.4); }
 .step-num { margin-bottom: 0.5rem; }

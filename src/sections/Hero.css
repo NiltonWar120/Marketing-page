@@ -4,8 +4,8 @@
   flex-direction: column;
   justify-content: center;
   position: relative;
-  overflow: visible;
-  padding-top: 8rem;
+  overflow: hidden;
+  padding-top: clamp(6rem, 9vh, 8rem);
   padding-bottom: 0;
 }
 
@@ -23,27 +23,31 @@
 .hero-content {
   position: relative;
   z-index: 10;
-  padding-bottom: 6rem;
+  padding-bottom: clamp(4rem, 7vw, 6rem);
 }
 
-.hero .pill { margin-bottom: 2.5rem; }
+.hero .pill { margin-bottom: 1rem; }
 
 .hero-headline {
-  margin-bottom: 2rem;
-  max-width: 900px;
+  margin-bottom: 1rem;
+  max-width: min(880px, 56vw);
   overflow: visible;
+  font-size: clamp(4rem, 10vw, 8.5rem);
+  line-height: 0.9;
+  letter-spacing: -0.06em;
+  white-space: nowrap;
 }
 
 .hero-sub {
   max-width: 520px;
-  margin-bottom: 3rem;
+  margin-bottom: 2rem;
 }
 
 .hero-cta {
   display: flex;
   flex-wrap: wrap;
   gap: 1rem;
-  margin-bottom: 5rem;
+  margin-bottom: 2rem;
 }
 
 .hero-stats {
@@ -130,4 +134,131 @@
   .hero { padding-top: 7rem; }
   .hero-stat { min-width: 120px; padding-right: 1rem; }
   .scroll-indicator { display: none; }
+}
+
+/* Floating avatar sin burbuja */
+.hero-avatar {
+  position: absolute;
+  top: clamp(8rem, 18vh, 12rem);
+  right: clamp(1.5rem, 7vw, 7rem);
+  z-index: 6;
+  width: clamp(280px, 45vw, 500px);
+  pointer-events: none;
+  transform-origin: center;
+}
+
+.hero-avatar-glow {
+  position: absolute;
+  inset: 18%;
+  background: var(--accent);
+  opacity: 0.12;
+  filter: blur(70px);
+  border-radius: 50%;
+  z-index: 0;
+}
+
+.hero-avatar-card {
+  position: relative;
+  z-index: 1;
+  width: 100%;
+  background: transparent;
+  border: none;
+  box-shadow: none;
+  backdrop-filter: none;
+  overflow: visible;
+}
+
+.hero-avatar-card::before {
+  display: none;
+}
+
+.hero-avatar-card img {
+  width: 100%;
+  height: auto;
+  object-fit: contain;
+  object-position: center;
+  display: block;
+  filter: drop-shadow(0 30px 45px rgba(0, 0, 0, 0.45));
+  transform: scale(1.02);
+}
+
+.hero-avatar-badge {
+  position: absolute;
+  right: 3%;
+  bottom: 8%;
+  z-index: 3;
+  display: flex;
+  align-items: center;
+  gap: 0.55rem;
+  padding: 0.7rem 1rem;
+  border-radius: 999px;
+  background: rgba(8, 8, 8, 0.72);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  color: var(--white);
+  font-size: 0.68rem;
+  letter-spacing: 0.12em;
+  text-transform: uppercase;
+  backdrop-filter: blur(18px);
+  box-shadow: 0 18px 50px rgba(0, 0, 0, 0.35);
+  white-space: nowrap;
+}
+
+.hero-avatar-badge .dot {
+  width: 7px;
+  height: 7px;
+  background: var(--accent);
+  border-radius: 50%;
+  box-shadow: 0 0 18px var(--accent);
+}
+
+@media (min-width: 1000px) {
+  .hero-headline,
+  .hero-sub,
+  .hero-cta,
+  .hero-stats {
+    max-width: 680px;
+  }
+}
+
+@media (max-width: 1000px) {
+  .hero-avatar {
+    top: 9rem;
+    right: 2rem;
+    width: clamp(190px, 30vw, 300px);
+  }
+
+  .hero-avatar-badge {
+    display: none;
+  }
+}
+
+@media (max-width: 768px) {
+   .hero-headline {
+    font-size: clamp(3rem, 16vw, 5rem);
+    line-height: 0.95;
+    max-width: 100%;
+  }
+  .hero-avatar {
+    position: relative;
+    top: auto;
+    right: auto;
+    width: min(320px, 82vw);
+    margin: 1.5rem auto 2.5rem;
+    z-index: 10;
+  }
+
+  .hero-content {
+    padding-bottom: 4rem;
+  }
+}
+
+@media (max-width: 480px) {
+    .hero-headline {
+    font-size: clamp(2.7rem, 15vw, 4.2rem);
+  }
+  .hero-avatar {
+    width: min(280px, 86vw);
+    margin-top: 1rem;
+    margin-bottom: 2rem;
+  }
 }

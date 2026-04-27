@@ -14,6 +14,7 @@ export default function Hero() {
   const badgeRef = useRef(null)
   const scrollRef = useRef(null)
   const statsRef = useRef(null)
+  const avatarRef = useRef(null)
 
   useEffect(() => {
     const ctx = gsap.context(() => {
@@ -34,6 +35,24 @@ export default function Hero() {
           '-=0.3'
         )
       }
+
+      if (avatarRef.current) {
+  tl.fromTo(
+    avatarRef.current,
+    { opacity: 0, scale: 0.85, y: 40, rotate: -6 },
+    { opacity: 1, scale: 1, y: 0, rotate: 0, duration: 1, ease: 'power4.out' },
+    '-=0.4'
+  )
+
+  gsap.to(avatarRef.current, {
+    y: -18,
+    rotate: 2,
+    duration: 3.5,
+    ease: 'sine.inOut',
+    repeat: -1,
+    yoyo: true,
+  })
+}
 
       tl.fromTo(subRef.current,
         { opacity: 0, y: 30 },
@@ -68,7 +87,16 @@ export default function Hero() {
       <HeroCanvas />
 
       <div className="hero-gradient" />
-
+<div ref={avatarRef} className="hero-avatar" aria-hidden="true">
+  <div className="hero-avatar-glow" />
+  <div className="hero-avatar-card">
+    <img src="/assets/avatarmkt.png" alt="" />
+  </div>
+  <div className="hero-avatar-badge">
+    <span className="dot" />
+    <span>Marketing System</span>
+  </div>
+</div>
       <div className="container hero-content">
         <div ref={badgeRef} className="pill" style={{ opacity: 0 }}>
           <span className="dot" />

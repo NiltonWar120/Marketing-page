@@ -1,6 +1,7 @@
 import { useEffect, useRef } from 'react'
 import gsap from 'gsap'
 import { ScrollTrigger } from 'gsap/ScrollTrigger'
+import ProcessWebGL from '../components/ProcessWebGL'
 import './Process.css'
 
 gsap.registerPlugin(ScrollTrigger)
@@ -20,36 +21,69 @@ export default function Process() {
 
   useEffect(() => {
     const ctx = gsap.context(() => {
-      gsap.fromTo('.process-head-item',
+      gsap.fromTo(
+        '.process-head-item',
         { opacity: 0, y: 40 },
-        { opacity: 1, y: 0, duration: 0.8, stagger: 0.12, ease: 'power3.out',
-          scrollTrigger: { trigger: '.process-head', start: 'top 80%' } }
+        {
+          opacity: 1,
+          y: 0,
+          duration: 0.8,
+          stagger: 0.12,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.process-head', start: 'top 80%' },
+        }
       )
 
-      // Animate the vertical line
-      gsap.fromTo(lineRef.current,
+      gsap.fromTo(
+        lineRef.current,
         { scaleY: 0 },
-        { scaleY: 1, duration: 2, ease: 'none',
-          scrollTrigger: { trigger: sectionRef.current, start: 'top 60%', end: 'bottom 80%', scrub: true } }
+        {
+          scaleY: 1,
+          duration: 2,
+          ease: 'none',
+          scrollTrigger: {
+            trigger: sectionRef.current,
+            start: 'top 60%',
+            end: 'bottom 80%',
+            scrub: true,
+          },
+        }
       )
 
-      gsap.fromTo('.step-item',
+      gsap.fromTo(
+        '.step-item',
         { opacity: 0, x: -40 },
-        { opacity: 1, x: 0, duration: 0.7, stagger: 0.15, ease: 'power3.out',
-          scrollTrigger: { trigger: '.process-steps', start: 'top 75%' } }
+        {
+          opacity: 1,
+          x: 0,
+          duration: 0.7,
+          stagger: 0.15,
+          ease: 'power3.out',
+          scrollTrigger: { trigger: '.process-steps', start: 'top 75%' },
+        }
       )
     }, sectionRef)
+
     return () => ctx.revert()
   }, [])
 
   return (
     <section ref={sectionRef} className="process section" id="proceso">
+      <ProcessWebGL />
+
       <div className="container">
         <div className="process-head">
-          <div className="process-head-item pill"><span className="dot" /><span>Cómo trabajamos</span></div>
+          <div className="process-head-item pill">
+            <span className="dot" />
+            <span>Cómo trabajamos</span>
+          </div>
+
           <h2 className="process-head-item display-md">
-            Proceso<br />
-            <em style={{ fontStyle: 'normal', color: 'var(--gold)' }}>sin sorpresas</em>
+            Proceso
+            <br />
+            <em style={{ fontStyle: 'normal', color: 'var(--gold)' }}>
+              sin sorpresas
+            </em>
           </h2>
         </div>
 
@@ -59,11 +93,12 @@ export default function Process() {
           </div>
 
           <div className="process-steps">
-            {steps.map((s, i) => (
+            {steps.map((s) => (
               <div className="step-item" key={s.num}>
                 <div className="step-dot">
                   <div className="step-dot-inner" />
                 </div>
+
                 <div className="step-content">
                   <div className="step-num label">{s.num}</div>
                   <h3 className="step-title">{s.title}</h3>
@@ -75,12 +110,29 @@ export default function Process() {
 
           <div className="process-cta-block glass">
             <div className="process-cta-accent" />
-            <span className="label" style={{ marginBottom: '1rem', display: 'block' }}>¿Listo para empezar?</span>
-            <h3 className="serif-lg" style={{ marginBottom: '1.5rem' }}>El mejor momento fue ayer.<br />El segundo mejor es ahora.</h3>
-            <button className="btn-primary" onClick={() => document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })}>
+            <span className="label" style={{ marginBottom: '1rem', display: 'block' }}>
+              ¿Listo para empezar?
+            </span>
+            <h3 className="serif-lg" style={{ marginBottom: '1.5rem' }}>
+              El mejor momento fue ayer.
+              <br />
+              El segundo mejor es ahora.
+            </h3>
+            <button
+              className="btn-primary"
+              onClick={() =>
+                document.getElementById('contacto')?.scrollIntoView({ behavior: 'smooth' })
+              }
+            >
               <span>Agenda una llamada</span>
               <svg width="14" height="14" viewBox="0 0 14 14" fill="none">
-                <path d="M1 13L13 1M13 1H4M13 1V10" stroke="currentColor" strokeWidth="1.5" strokeLinecap="round" strokeLinejoin="round"/>
+                <path
+                  d="M1 13L13 1M13 1H4M13 1V10"
+                  stroke="currentColor"
+                  strokeWidth="1.5"
+                  strokeLinecap="round"
+                  strokeLinejoin="round"
+                />
               </svg>
             </button>
           </div>
